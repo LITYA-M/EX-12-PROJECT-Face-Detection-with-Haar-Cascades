@@ -13,33 +13,65 @@ iv) Perform face detection with label in real-time video from webcam.
 3.Matplotlib library (matplotlib)
 4.Jupyter Notebook or any Python IDE (e.g., VS Code, PyCharm)
 # Algorithm
-I) Load and Display Images
-Step 1: Import necessary packages: numpy, cv2, matplotlib.pyplot
-Step 2: Load grayscale images using cv2.imread() with flag 0
-Step 3: Display images using plt.imshow() with cmap='gray'
-II) Load Haar Cascade Classifiers
-Step 1: Load face and eye cascade XML files
-III) Perform Face Detection in Images
-Step 1: Define a function detect_face() that copies the input image
-Step 2: Use face_cascade.detectMultiScale() to detect faces
-Step 3: Draw white rectangles around detected faces with thickness 10
-Step 4: Return the processed image with rectangles
-IV) Perform Eye Detection in Images
-Step 1: Define a function detect_eyes() that copies the input image
-Step 2: Use eye_cascade.detectMultiScale() to detect eyes
-Step 3: Draw white rectangles around detected eyes with thickness 10
-Step 4: Return the processed image with rectangles
-V) Display Detection Results on Images
-Step 1: Call detect_face() or detect_eyes() on loaded images
-Step 2: Use plt.imshow() with cmap='gray' to display images with detected regions highlighted
-VI) Perform Face Detection on Real-Time Webcam Video
-Step 1: Capture video from webcam using cv2.VideoCapture(0)
-Step 2: Loop to continuously read frames from webcam
-Step 3: Apply detect_face() function on each frame
-Step 4: Display the video frame with rectangles around detected faces
-Step 5: Exit loop and close windows when ESC key (key code 27) is pressed
-Step 6: Release video capture and destroy all OpenCV windows
+I. ROI Extraction
 
+1.Import OpenCV, NumPy, and Matplotlib.
+
+2.Read the input image using cv2.imread().
+
+3.Select the required Region of Interest (ROI) using image coordinates.
+
+4.Create a black mask using np.zeros_like().
+
+5.Place the selected ROI on the mask.
+
+6.Apply cv2.bitwise_and() to segment the ROI.
+
+7.Display the segmented ROI using Matplotlib.
+
+II. Face Detection
+
+1.Read the input image.
+
+2.Convert the image from BGR to grayscale.
+
+3.Load the Haar Cascade face classifier.
+
+4.Detect faces using detectMultiScale().
+
+5.Draw rectangles around the detected faces.
+
+6.Display the face-detected image.
+
+III. Eye Detection
+
+1.Read the input image and convert it to grayscale.
+
+2.Load the Haar Cascade eye classifier.
+
+3.Detect eyes using detectMultiScale().
+
+4.Draw rectangles around the detected eyes.
+
+5.Display the resulting image.
+
+IV. Real-Time Face Detection
+
+1.Access the webcam using cv2.VideoCapture(0).
+
+2.Capture frames continuously.
+
+3.Convert each frame to grayscale.
+
+4.Detect faces using the Haar Cascade classifier.
+
+5.Draw rectangles around detected faces.
+
+6.Display the label "Face" on the detected region.
+
+7.Continue until the ESC key is pressed.
+
+8.Release the webcam and close all windows.
 
 # Program:
 Developed by LITYA M
